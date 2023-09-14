@@ -52,56 +52,9 @@ theme = createTheme(theme, {
       styleOverrides: {
         "#root": {
           width: "100vw",
-          minHeight: "100vh",
         },
         "*": {
-          overflowX: "hidden",
-        },
-      },
-    },
-    MuiTextField: {
-      defaultProps: {
-        InputLabelProps: {
-          shrink: true,
-        },
-      },
-      // For making the input label invisible line disappear
-      styleOverrides: {
-        root: {
-          legend: {
-            span: {
-              display: "none",
-            },
-          },
-          input: {
-            color: theme.palette.input.main,
-          },
-
-          ".MuiInputBase-root.Mui-focused > fieldset": {
-            borderColor: theme.palette.text.primary,
-          },
-          ".MuiInputBase-root.Mui-focused.Mui-error > fieldset": {
-            borderColor: theme.palette.error.main,
-          },
-        },
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          position: "unset",
-          transform: "unset",
-          marginBottom: "2px",
-          textAlign: "left",
-          color: theme.palette.text.primary,
-          fontWeight: 500,
-          fontSize: theme.typography.body2.fontSize,
-          "&.Mui-focused": {
-            color: theme.palette.text.primary,
-          },
-          "&.Mui-focused.Mui-error": {
-            color: "error",
-          },
+          outline: "none",
         },
       },
     },

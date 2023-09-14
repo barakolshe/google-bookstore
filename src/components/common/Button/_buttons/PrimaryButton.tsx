@@ -15,7 +15,6 @@ const PrimaryButon: FunctionComponent<PrimaryButtonProps> = ({
     <MuiButton
       variant="contained"
       sx={{
-        outline: "none !important",
         color: "common.white",
         borderRadius: "8px",
         ...sx,

@@ -1,4 +1,3 @@
-// Created this using chatgpt
 interface Book {
   id: string;
   volumeInfo: {
