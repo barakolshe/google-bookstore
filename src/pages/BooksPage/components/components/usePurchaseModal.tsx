@@ -1,11 +1,24 @@
 import { UseFormRegister, useForm } from "react-hook-form";
+import yup from "yup";
+
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+const schema = yup.object({
+  name: yup.string().required(),
+  phoneNumber: yup.string().required().matches(phoneRegExp),
+  email: yup.string().required().email(),
+  address: yup.string().required(),
+});
 
 const usePurchaseModal = () => {
   const {
     handleSubmit,
     register,
     formState: { errors: formErrors },
-  } = useForm<BookPurchase>();
+  } = useForm<BookPurchase>({
+    // resolver: yupResolver(schema),
+  });
 
   const registers = registerInputs(register);
 
@@ -17,28 +30,19 @@ const usePurchaseModal = () => {
 };
 
 const registerInputs = (register: UseFormRegister<BookPurchase>) => {
-  const { ref: nameInputRef, ...nameInputProps } = register("name", {
-    required: "This field is required",
-  });
+  const { ref: nameInputRef, ...nameInputProps } = register("name", {});
 
   const { ref: phoneNumberInputRef, ...phoneNumberInputProps } = register(
     "phoneNumber",
-    {
-      required: "This field is required",
-    }
+    {}
   );
 
-  const { ref: emailInputRef, ...emailInputProps } = register("email", {
-    required: "This field is required",
-    pattern: {
-      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-      message: "Invalid email address",
-    },
-  });
+  const { ref: emailInputRef, ...emailInputProps } = register("email", {});
 
-  const { ref: addressInputRef, ...addressInputProps } = register("address", {
-    required: "This field is required",
-  });
+  const { ref: addressInputRef, ...addressInputProps } = register(
+    "address",
+    {}
+  );
 
   const registers = {
     name: {

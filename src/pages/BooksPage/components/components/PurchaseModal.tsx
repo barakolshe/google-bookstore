@@ -15,7 +15,7 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
   open,
   handleClose,
 }) => {
-  const { registers, onSubmit, formErrors } = usePurchaseModal();
+  const { registers, onSubmit } = usePurchaseModal();
 
   return (
     <Modal
@@ -47,6 +47,7 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
               marginTop: 3,
               marginX: "auto",
             }}
+            onSubmit={onSubmit}
           >
             <TextField
               inputRef={registers.name.ref}
@@ -72,7 +73,7 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
               placeholder="Address"
               label="Address"
             />
-            <Button>Purchase</Button>
+            <Button type="submit">Purchase</Button>
           </Box>
         </Paper>
       ) : (
