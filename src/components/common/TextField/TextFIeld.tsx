@@ -1,6 +1,6 @@
 import { TextFieldProps as MuiTextFieldProps } from "@mui/material";
 import { FunctionComponent, forwardRef } from "react";
-import PrimaryTextField from "./_textinputs/PrimaryTextField";
+import PrimaryTextField from "./_textfields/PrimaryTextField";
 
 const variants = {
   primary: "primary",
