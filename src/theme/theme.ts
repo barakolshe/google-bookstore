@@ -2,7 +2,7 @@ import { SimplePaletteColorOptions, createTheme } from "@mui/material";
 
 // Custom colors
 interface CustomPalette {
-  input: SimplePaletteColorOptions;
+  search: SimplePaletteColorOptions;
 }
 
 declare module "@mui/material/styles" {
@@ -19,13 +19,13 @@ declare module "@mui/material/Button" {
 let theme = createTheme({
   palette: {
     primary: {
-      main: "#FE8660",
+      main: "rgb(35, 85, 148)",
     },
     text: {
       primary: "#4A4543",
       secondary: "#808080",
     },
-    input: {
+    search: {
       main: "placeholder",
     },
   },
@@ -37,11 +37,11 @@ let theme = createTheme({
 // Custome colors here
 theme = createTheme(theme, {
   palette: {
-    input: theme.palette.augmentColor({
+    search: theme.palette.augmentColor({
       color: {
-        main: "#2D2D2D",
+        main: "rgba(35, 85, 148, 0.15)",
       },
-      name: "input",
+      name: "search",
     }),
   },
 });

@@ -1,5 +1,6 @@
-import AdbIcon from "@mui/icons-material/Adb";
+import logo from "@/assets/kovrr.png";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Stack } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -30,26 +31,20 @@ const AppBar = React.forwardRef<HTMLDivElement>(({}, ref) => {
     <MuiAppBar position="static" ref={ref}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
+          <Stack
+            direction="column"
+            justifyContent="center"
             component="a"
             href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
             }}
           >
-            LOGO
-          </Typography>
+            <img src={logo} height="25px" />
+          </Stack>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -85,25 +80,18 @@ const AppBar = React.forwardRef<HTMLDivElement>(({}, ref) => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
+          <Stack
+            direction="column"
+            justifyContent="center"
             component="a"
             href="/"
             sx={{
-              mr: 2,
+              mx: "auto",
               display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
             }}
           >
-            LOGO
-          </Typography>
+            <img src={logo} height="25px" />
+          </Stack>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button

@@ -30,7 +30,7 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
         pt: 3,
       }}
     >
-      <Grid container direction="row">
+      <Grid container direction="row-reverse">
         <Grid
           item
           xs={currBreakpoint === "md" ? 4 : 12}

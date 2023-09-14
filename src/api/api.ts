@@ -4,7 +4,7 @@ import { getBooks } from "./endpoints";
 
 const server = import.meta.env.VITE_SERVER;
 
-interface booksEnpointParams {
+interface booksEndpointParams {
   keyWord?: string;
   startIndex: number;
   pageSize: number;
@@ -52,7 +52,7 @@ export const booksEndpoint = ({
   keyWord,
   startIndex,
   pageSize,
-}: booksEnpointParams) => {
+}: booksEndpointParams) => {
   const _keyWord =
     keyWord !== undefined ? `${DEFAULT_FILTER}+${keyWord}` : DEFAULT_FILTER;
 
@@ -102,7 +102,7 @@ const getPageSize = (pageSize: number, startIndex: number) => {
   return queryBuilders;
 };
 
-// Combined all the book requests being sent
+// Combines all the book requests being sent
 const combinePromises = (promises: Promise<BooksResponse>[]) => {
   return Promise.all(promises).then((responses) =>
     responses.reduce((combined, curr) => {
@@ -116,7 +116,7 @@ const combinePromises = (promises: Promise<BooksResponse>[]) => {
 
 const itemsCountCache = new Map<string, number>();
 
-// Uses a cache to optimise the process
+// Uses a cache to optimise the process of finding the number of items
 const getTotalItems = async (keyWord: string) => {
   if (itemsCountCache.has(keyWord)) {
     return Promise.resolve(itemsCountCache.get(keyWord));
@@ -148,7 +148,7 @@ const getFirstPageCount = async (keyWord: string) => {
 // Binary search to get number of items
 const binarySearchCount = async (keyWord: string) => {
   let start = 0;
-  let end = 500;
+  let end = 500; // around the actual number of cyber books
 
   while (start <= end) {
     let qb = new QueryBuilder();

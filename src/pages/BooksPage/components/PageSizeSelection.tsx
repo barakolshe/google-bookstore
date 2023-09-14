@@ -13,7 +13,7 @@ interface PageSizeSelectionProps extends ButtonGroupProps {
 
 const PageSizeSelection: FunctionComponent<PageSizeSelectionProps> = ({
   sx,
-  //   pageSize,
+  pageSize: selectedPageSize,
   setPageSize,
 }) => {
   return (
@@ -23,7 +23,14 @@ const PageSizeSelection: FunctionComponent<PageSizeSelectionProps> = ({
       sx={sx}
     >
       {PAGE_SIZE_OPTIONS.map((pageSize) => (
-        <MuiButton key={pageSize} onClick={() => setPageSize(pageSize)}>
+        <MuiButton
+          key={pageSize}
+          onClick={() => setPageSize(pageSize)}
+          sx={{
+            backgroundColor:
+              pageSize === selectedPageSize ? "primary.dark" : "primary",
+          }}
+        >
           {pageSize}
         </MuiButton>
       ))}

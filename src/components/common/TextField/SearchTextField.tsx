@@ -11,6 +11,7 @@ const SearchTextField: FunctionComponent<SearchTextFieldProps> = ({
   return (
     <Paper
       sx={{
+        backgroundColor: "search.main",
         p: "0px 4px",
         display: "flex",
         alignItems: "center",
