@@ -50,6 +50,9 @@ theme = createTheme(theme, {
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        body: {
+          overflowX: "hidden",
+        },
         "#root": {
           width: "100vw",
         },

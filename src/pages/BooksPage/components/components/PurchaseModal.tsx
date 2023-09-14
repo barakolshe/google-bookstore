@@ -1,6 +1,6 @@
 import Button from "@/components/common/Button/Button";
 import TextField from "@/components/common/TextField/TextFIeld";
-import { Box, Modal, Paper, Typography } from "@mui/material";
+import { Modal, Paper, Stack, Typography } from "@mui/material";
 import { FunctionComponent } from "react";
 import usePurchaseModal from "./usePurchaseModal";
 
@@ -15,7 +15,7 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
   open,
   handleClose,
 }) => {
-  const { registers, onSubmit } = usePurchaseModal();
+  const { registers, onSubmit, formErrors } = usePurchaseModal(handleClose);
 
   return (
     <Modal
@@ -27,6 +27,7 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
       {bookDetails !== null ? (
         <Paper
           sx={{
+            width: { xs: "90%", sm: "500px" },
             position: "absolute",
             top: "50%",
             left: "50%",
@@ -34,16 +35,15 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
             p: 4,
           }}
         >
-          <Typography variant="h5" align="center">
+          <Typography variant="h4" align="center">
             {bookDetails.volumeInfo.title}
           </Typography>
-          <Box
+          <Stack
             component="form"
+            direction="column"
+            gap={3}
             sx={{
               maxWidth: "50%",
-              display: "flex",
-              flexDirection: "column",
-              gap: 3,
               marginTop: 3,
               marginX: "auto",
             }}
@@ -54,27 +54,42 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
               {...registers.name.inputProps}
               placeholder="Name"
               label="Name"
+              type="text"
+              error={Boolean(formErrors.name)}
+              helperText={formErrors.name?.message}
             />
             <TextField
               inputRef={registers.phoneNumber.ref}
               {...registers.phoneNumber.inputProps}
               placeholder="Phone Number"
               label="Phone Number"
+              type="tel"
+              error={Boolean(formErrors.phoneNumber)}
+              helperText={formErrors.phoneNumber?.message}
             />
             <TextField
               inputRef={registers.email.ref}
               {...registers.email.inputProps}
               placeholder="Email"
               label="Email"
+              type="email"
+              error={Boolean(formErrors.email)}
+              helperText={formErrors.email?.message}
             />
             <TextField
               inputRef={registers.address.ref}
               {...registers.address.inputProps}
               placeholder="Address"
               label="Address"
+              multiline
+              rows={2}
+              error={Boolean(formErrors.address)}
+              helperText={formErrors.address?.message}
             />
-            <Button type="submit">Purchase</Button>
-          </Box>
+            <Button type="submit" sx={{ width: "70%", marginX: "auto" }}>
+              Purchase
+            </Button>
+          </Stack>
         </Paper>
       ) : (
         <></>

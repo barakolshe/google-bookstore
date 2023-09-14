@@ -1,29 +1,35 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { UseFormRegister, useForm } from "react-hook-form";
-import yup from "yup";
+import * as yup from "yup";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const schema = yup.object({
   name: yup.string().required(),
-  phoneNumber: yup.string().required().matches(phoneRegExp),
+  phoneNumber: yup.string().required().matches(phoneRegExp, {
+    message: "Value must be a valid phone number",
+  }),
   email: yup.string().required().email(),
   address: yup.string().required(),
 });
 
-const usePurchaseModal = () => {
+const usePurchaseModal = (handleClose: () => void) => {
   const {
     handleSubmit,
+    reset,
     register,
     formState: { errors: formErrors },
   } = useForm<BookPurchase>({
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
   });
 
   const registers = registerInputs(register);
 
   const onSubmit = (formData: BookPurchase) => {
     console.log("purchase was made: ", formData);
+    reset();
+    handleClose();
   };
 
   return { registers, onSubmit: handleSubmit(onSubmit), formErrors };

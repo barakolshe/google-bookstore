@@ -1,23 +1,22 @@
 import Error from "@/components/common/Error/Error";
 import Loader from "@/components/common/Loader/Loader";
-import { PAGE_SIZE } from "@/configs/mainConfig";
-import { Box, Pagination } from "@mui/material";
-import { FunctionComponent } from "react";
+import { Stack } from "@mui/material";
+import React, { FunctionComponent } from "react";
 import BookItem from "./components/BookItem";
 import PurchaseModal from "./components/PurchaseModal";
-import useBookList from "./useBookList";
 
-interface BooksListProps {}
+interface BooksListProps {
+  isError: boolean;
+  isLoading: boolean;
+  books: Book[];
+}
 
-const BooksList: FunctionComponent<BooksListProps> = () => {
-  const {
-    pageNumber,
-    updatePageNumber,
-    booksData: { isLoading, isError, data },
-    currBreakpoint,
-    selectedBook,
-    setSelectedBook,
-  } = useBookList();
+const BooksList: FunctionComponent<BooksListProps> = ({
+  isError,
+  isLoading,
+  books,
+}) => {
+  const [selectedBook, setSelectedBook] = React.useState<Book | null>(null);
 
   // Rendering element based on api state
   let items = null;
@@ -27,10 +26,9 @@ const BooksList: FunctionComponent<BooksListProps> = () => {
     items = <Loader />;
   } else {
     items = (
-      <Box
+      <Stack
+        direction="row"
         sx={{
-          display: "flex",
-          flexDirection: "row",
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignItems: "center",
@@ -40,7 +38,7 @@ const BooksList: FunctionComponent<BooksListProps> = () => {
           overflowY: "hidden",
         }}
       >
-        {data?.items.map((item, index) => (
+        {books?.map((item, index) => (
           <BookItem
             onClick={() => setSelectedBook(item)}
             key={index}
@@ -48,34 +46,19 @@ const BooksList: FunctionComponent<BooksListProps> = () => {
             title={item.volumeInfo.title}
           />
         ))}
-      </Box>
+      </Stack>
     );
   }
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        minHeight: "inherit",
-      }}
-    >
+    <>
       <PurchaseModal
         bookDetails={selectedBook}
         open={selectedBook !== null}
         handleClose={() => setSelectedBook(null)}
       />
       {items}
-      <Pagination
-        count={data !== undefined ? Math.ceil(data.totalItems / PAGE_SIZE) : 0}
-        color="primary"
-        sx={{ marginY: "20px" }}
-        onChange={updatePageNumber}
-        page={Number(pageNumber)}
-        boundaryCount={currBreakpoint === "xs" ? 0 : 1}
-      />
-    </Box>
+    </>
   );
 };
 

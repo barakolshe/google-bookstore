@@ -3,6 +3,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
+  Stack,
   Typography,
 } from "@mui/material";
 import { FunctionComponent } from "react";
@@ -21,20 +22,14 @@ const BookItem: FunctionComponent<BookItemProps> = ({
   return (
     <Card>
       <CardActionArea sx={{ height: "294px" }} onClick={onClick}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
+        <Stack direction="row" justifyContent="center">
           <Box
             component="img"
             src={cover}
             height="188px"
             sx={{ objectFit: "fill" }}
           />
-        </Box>
+        </Stack>
         <CardContent>
           <Typography
             title={title}
