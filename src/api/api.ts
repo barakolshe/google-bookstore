@@ -116,15 +116,34 @@ const combinePromises = (promises: Promise<BooksResponse>[]) => {
 
 const itemsCountCache = new Map<string, number>();
 
+// Uses a cache to optimise the process
 const getTotalItems = async (keyWord: string) => {
   console.log(itemsCountCache);
   if (itemsCountCache.has(keyWord)) {
     return Promise.resolve(itemsCountCache.get(keyWord));
   } else {
-    const count = await binarySearchCount(keyWord);
+    const firstPageCount = await getFirstPageCount(keyWord);
+    const count =
+      firstPageCount < MAX_PAGE_SIZE
+        ? firstPageCount
+        : await binarySearchCount(keyWord);
     itemsCountCache.set(keyWord, count);
     return count;
   }
+};
+
+const getFirstPageCount = async (keyWord: string) => {
+  let qb = new QueryBuilder();
+  qb.fields(FIELDS);
+  qb.keyWord(keyWord);
+  qb.maxResults(MAX_PAGE_SIZE);
+  qb.startIndex(0);
+
+  let result = await axios
+    .get<BooksResponse>(`${server}${getBooks}?${qb.getQuery()}`)
+    .then((response) => response.data);
+
+  return result.items ? result.items.length : 0;
 };
 
 // Binary search to get number of items
