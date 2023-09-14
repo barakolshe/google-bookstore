@@ -1,6 +1,6 @@
 import Error from "@/components/common/Error/Error";
 import Loader from "@/components/common/Loader/Loader";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import React, { FunctionComponent } from "react";
 import BookItem from "./components/BookItem";
 import PurchaseModal from "./components/PurchaseModal";
@@ -24,6 +24,12 @@ const BooksList: FunctionComponent<BooksListProps> = ({
     items = <Error>Error</Error>;
   } else if (isLoading) {
     items = <Loader />;
+  } else if (books === undefined || books.length === 0) {
+    items = (
+      <Typography variant="h2" sx={{ m: "auto" }}>
+        No books found
+      </Typography>
+    );
   } else {
     items = (
       <Stack

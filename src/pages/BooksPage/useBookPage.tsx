@@ -1,21 +1,45 @@
 import { booksEndpoint } from "@/api/api";
-import { DEFAULT_PAGE_SIZE } from "@/configs/apiConfig";
+import { PAGE_SIZE_OPTIONS } from "@/configs/apiConfig";
 import useBreakpoint from "@/hooks/useBreakpoint";
+import { debounce } from "@mui/material";
 import React, { ChangeEvent } from "react";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 
 const useBookPage = () => {
   const navigate = useNavigate();
-  const { pageNumber } = useParams();
-  const currBreakpoint = useBreakpoint(["xs", "sm"]);
+  const pageNumber = Number(useParams().pageNumber);
+  const currBreakpoint = useBreakpoint(["xs", "sm", "md"]);
+  const [searchValue, setSearchValue] = React.useState("");
+  const [pageSize, _setPageSize] =
+    React.useState<(typeof PAGE_SIZE_OPTIONS)[number]>(50);
 
-  const booksQuery = useQuery(["booksData", pageNumber], () =>
-    booksEndpoint({
-      pageSize: DEFAULT_PAGE_SIZE,
-      startIndex: (Number(pageNumber) - 1) * DEFAULT_PAGE_SIZE,
-    })
+  const booksQuery = useQuery(
+    ["booksData", pageNumber, searchValue, pageSize],
+    () =>
+      booksEndpoint({
+        keyWord: searchValue,
+        pageSize: pageSize,
+        startIndex: (Number(pageNumber) - 1) * pageSize,
+      })
   );
+
+  const setPageSize = (pageSize: (typeof PAGE_SIZE_OPTIONS)[number]) => {
+    navigate(`/books/${1}`);
+    _setPageSize(pageSize);
+  };
+
+  // Validating the current page number
+  React.useEffect(() => {
+    let currMaxPageSize =
+      booksQuery.data !== undefined
+        ? Math.ceil(booksQuery.data?.totalItems / pageSize)
+        : 0;
+
+    if (currMaxPageSize != 0 && pageNumber > currMaxPageSize) {
+      navigate(`/books/${1}`);
+    }
+  }, [booksQuery, pageSize]);
 
   React.useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -30,6 +54,9 @@ const useBookPage = () => {
     updatePageNumber,
     booksQuery,
     currBreakpoint,
+    setSearchValue: debounce(setSearchValue, 1000),
+    pageSize,
+    setPageSize,
   };
 };
 

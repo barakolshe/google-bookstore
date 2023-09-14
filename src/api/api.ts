@@ -118,7 +118,6 @@ const itemsCountCache = new Map<string, number>();
 
 // Uses a cache to optimise the process
 const getTotalItems = async (keyWord: string) => {
-  console.log(itemsCountCache);
   if (itemsCountCache.has(keyWord)) {
     return Promise.resolve(itemsCountCache.get(keyWord));
   } else {

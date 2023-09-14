@@ -15,12 +15,13 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
   open,
   handleClose,
 }) => {
-  const { registers, onSubmit, formErrors } = usePurchaseModal(handleClose);
+  const { registers, onSubmit, formErrors, _handleClose } =
+    usePurchaseModal(handleClose);
 
   return (
     <Modal
       open={open}
-      onClose={handleClose}
+      onClose={_handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >

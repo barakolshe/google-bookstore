@@ -26,13 +26,21 @@ const usePurchaseModal = (handleClose: () => void) => {
 
   const registers = registerInputs(register);
 
-  const onSubmit = (formData: BookPurchase) => {
-    console.log("purchase was made: ", formData);
+  const _handleClose = () => {
     reset();
     handleClose();
   };
 
-  return { registers, onSubmit: handleSubmit(onSubmit), formErrors };
+  const onSubmit = (formData: BookPurchase) => {
+    _handleClose;
+  };
+
+  return {
+    registers,
+    onSubmit: handleSubmit(onSubmit),
+    formErrors,
+    _handleClose,
+  };
 };
 
 const registerInputs = (register: UseFormRegister<BookPurchase>) => {
