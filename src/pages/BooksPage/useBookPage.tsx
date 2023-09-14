@@ -1,5 +1,5 @@
 import { booksEndpoint } from "@/api/api";
-import { PAGE_SIZE } from "@/configs/apiConfig";
+import { DEFAULT_PAGE_SIZE } from "@/configs/apiConfig";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import React, { ChangeEvent } from "react";
 import { useQuery } from "react-query";
@@ -12,8 +12,8 @@ const useBookPage = () => {
 
   const booksQuery = useQuery(["booksData", pageNumber], () =>
     booksEndpoint({
-      pageSize: PAGE_SIZE,
-      startIndex: (Number(pageNumber) - 1) * PAGE_SIZE,
+      pageSize: DEFAULT_PAGE_SIZE,
+      startIndex: (Number(pageNumber) - 1) * DEFAULT_PAGE_SIZE,
     })
   );
 

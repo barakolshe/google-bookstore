@@ -1,4 +1,5 @@
-import { PAGE_SIZE } from "@/configs/apiConfig";
+import SearchTextField from "@/components/common/TextField/SearchTextField";
+import { DEFAULT_PAGE_SIZE } from "@/configs/apiConfig";
 import { Pagination, Stack } from "@mui/material";
 import { FunctionComponent } from "react";
 import BooksList from "./components/BooksList";
@@ -12,38 +13,33 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
 
   return (
     <Stack
-      direction="row"
+      direction="column"
+      alignItems="center"
       sx={{
-        minHeight: `inherit`,
+        minHeight: "inherit",
         width: "100%",
-        paddingX: "40px",
+        px: 5,
+        mt: 3,
       }}
     >
-      <Stack
-        direction="column"
-        alignItems="center"
-        sx={{
-          minHeight: "inherit",
-        }}
-      >
-        <BooksList
-          isError={booksQuery.isError}
-          isLoading={booksQuery.isLoading}
-          books={booksQuery.data ? booksQuery.data.items : []}
-        />
-        <Pagination
-          count={
-            booksQuery.data !== undefined
-              ? Math.ceil(booksQuery.data?.totalItems / PAGE_SIZE)
-              : 0
-          }
-          color="primary"
-          sx={{ marginY: "20px" }}
-          onChange={updatePageNumber}
-          page={Number(pageNumber)}
-          boundaryCount={currBreakpoint === "xs" ? 0 : 1}
-        />
-      </Stack>
+      <SearchTextField placeholder="Search" />
+      <BooksList
+        isError={booksQuery.isError}
+        isLoading={booksQuery.isLoading}
+        books={booksQuery.data ? booksQuery.data.items : []}
+      />
+      <Pagination
+        count={
+          booksQuery.data !== undefined
+            ? Math.ceil(booksQuery.data?.totalItems / DEFAULT_PAGE_SIZE)
+            : 0
+        }
+        color="primary"
+        sx={{ my: "20px" }}
+        onChange={updatePageNumber}
+        page={Number(pageNumber)}
+        boundaryCount={currBreakpoint === "xs" ? 0 : 1}
+      />
     </Stack>
   );
 };

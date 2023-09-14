@@ -44,8 +44,8 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
             gap={3}
             sx={{
               maxWidth: "50%",
-              marginTop: 3,
-              marginX: "auto",
+              mt: 3,
+              mx: "auto",
             }}
             onSubmit={onSubmit}
           >
@@ -86,7 +86,7 @@ const PurchaseModal: FunctionComponent<PurchaseModalProps> = ({
               error={Boolean(formErrors.address)}
               helperText={formErrors.address?.message}
             />
-            <Button type="submit" sx={{ width: "70%", marginX: "auto" }}>
+            <Button type="submit" sx={{ width: "70%", mx: "auto" }}>
               Purchase
             </Button>
           </Stack>

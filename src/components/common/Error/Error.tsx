@@ -9,7 +9,7 @@ const Error: FunctionComponent<ErrorProps> = ({ children, sx, ...props }) => {
       variant="h2"
       color="error"
       sx={{
-        margin: "auto auto",
+        m: "auto auto",
         ...sx,
       }}
       {...props}

@@ -41,7 +41,7 @@ const BookItem: FunctionComponent<BookItemProps> = ({
               WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
-              marginTop: "10px",
+              mt: "10px",
             }}
           >
             {title}

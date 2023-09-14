@@ -34,7 +34,7 @@ const BooksList: FunctionComponent<BooksListProps> = ({
           alignItems: "center",
           width: "100%",
           gap: 3,
-          marginTop: 3,
+          mt: 3,
           overflowY: "hidden",
         }}
       >

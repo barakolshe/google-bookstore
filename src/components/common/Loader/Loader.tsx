@@ -7,7 +7,7 @@ const Loader: FunctionComponent<LoaderProps> = ({ sx, ...props }) => {
   return (
     <CircularProgress
       sx={{
-        margin: "auto auto",
+        m: "auto auto",
         ...sx,
       }}
       {...props}

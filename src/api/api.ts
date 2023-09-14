@@ -1,4 +1,4 @@
-import { DEFAULT_FILTER, FIELDS, MAX_PAGE_SIZE } from "@/configs/mainConfig";
+import { DEFAULT_FILTER, FIELDS, MAX_PAGE_SIZE } from "@/configs/apiConfig";
 import axios from "axios";
 import { getBooks } from "./endpoints";
 
