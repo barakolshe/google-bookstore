@@ -1,6 +1,6 @@
 import { booksEndpoint } from "@/api/api";
 import { PAGE_SIZE_OPTIONS } from "@/configs/apiConfig";
-import useBreakpoint from "@/hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/useBreakpoint/useBreakpoint";
 import { debounce } from "@mui/material";
 import React, { ChangeEvent } from "react";
 import { useQuery } from "react-query";

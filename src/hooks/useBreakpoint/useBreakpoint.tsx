@@ -1,5 +1,5 @@
 import { Breakpoint, useTheme } from "@mui/material";
-import useWindowDimensions from "./useWindowDimensions";
+import useWindowDimensions from "../useWindowDimensions/useWindowDimensions";
 
 /**
  * Take a list of breakpoint names as input and provide the name of the

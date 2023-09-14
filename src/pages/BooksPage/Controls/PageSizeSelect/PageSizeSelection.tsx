@@ -11,7 +11,7 @@ interface PageSizeSelectionProps extends ButtonGroupProps {
   setPageSize: (pageSize: (typeof PAGE_SIZE_OPTIONS)[number]) => void;
 }
 
-const PageSizeSelection: FunctionComponent<PageSizeSelectionProps> = ({
+const PageSizeSelect: FunctionComponent<PageSizeSelectionProps> = ({
   sx,
   pageSize: selectedPageSize,
   setPageSize,
@@ -38,4 +38,4 @@ const PageSizeSelection: FunctionComponent<PageSizeSelectionProps> = ({
   );
 };
 
-export default PageSizeSelection;
+export default PageSizeSelect;

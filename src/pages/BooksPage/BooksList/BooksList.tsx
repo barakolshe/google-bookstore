@@ -2,8 +2,8 @@ import Error from "@/components/common/Error/Error";
 import Loader from "@/components/common/Loader/Loader";
 import { Stack, Typography } from "@mui/material";
 import React, { FunctionComponent } from "react";
-import BookItem from "./components/BookItem";
-import PurchaseModal from "./components/PurchaseModal";
+import BookItem from "./BookItem/BookItem";
+import PurchaseModal from "./PurchaseModal/PurchaseModal";
 
 interface BooksListProps {
   isError: boolean;

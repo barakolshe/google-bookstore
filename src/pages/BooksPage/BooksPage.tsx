@@ -1,8 +1,7 @@
-import SearchTextField from "@/components/common/TextField/SearchTextField";
-import { Grid, Pagination, Stack } from "@mui/material";
+import { Pagination, Stack } from "@mui/material";
 import { FunctionComponent } from "react";
-import BooksList from "./components/BooksList";
-import PageSizeSelection from "./components/PageSizeSelection";
+import BooksList from "./BooksList/BooksList";
+import Controls from "./Controls/Controls";
 import useBookPage from "./useBookPage";
 
 interface BooksPageProps {}
@@ -30,35 +29,7 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
         pt: 3,
       }}
     >
-      <Grid container direction="row-reverse">
-        <Grid
-          item
-          xs={currBreakpoint === "md" ? 4 : 12}
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: { xs: "center", md: "center" },
-            mb: { xs: 3, md: 0 },
-          }}
-        >
-          <PageSizeSelection pageSize={pageSize} setPageSize={setPageSize} />
-        </Grid>
-        <Grid
-          item
-          xs={currBreakpoint === "md" ? 4 : 12}
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <SearchTextField
-            placeholder="Search"
-            sx={{ width: "280px" }}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        </Grid>
-      </Grid>
+      <Controls />
       <BooksList
         isError={booksQuery.isError}
         isLoading={booksQuery.isLoading}
