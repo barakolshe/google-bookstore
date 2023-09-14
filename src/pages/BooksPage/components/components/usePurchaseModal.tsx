@@ -6,15 +6,28 @@ const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const schema = yup.object({
-  name: yup.string().required(),
-  phoneNumber: yup.string().required().matches(phoneRegExp, {
-    message: "Value must be a valid phone number",
-  }),
-  email: yup.string().required().email(),
-  address: yup.string().required(),
+  name: yup.string().required("Name is a required field"),
+  phoneNumber: yup
+    .string()
+    .required("Phone number is a required field")
+    .matches(phoneRegExp, {
+      message: "Value must be a valid phone number",
+    }),
+  email: yup.string().required("Email is a required field").email(),
+  address: yup.string().required("Address is a required field"),
 });
 
-const usePurchaseModal = (handleClose: () => void) => {
+interface usePurchaseModalProps {
+  bookName: string | null;
+  handleClose: () => void;
+  onPurchase: (bookName: string | null) => void;
+}
+
+const usePurchaseModal = ({
+  bookName,
+  handleClose,
+  onPurchase,
+}: usePurchaseModalProps) => {
   const {
     handleSubmit,
     reset,
@@ -31,8 +44,9 @@ const usePurchaseModal = (handleClose: () => void) => {
     handleClose();
   };
 
-  const onSubmit = (formData: BookPurchase) => {
-    _handleClose;
+  const onSubmit = () => {
+    onPurchase(bookName);
+    _handleClose();
   };
 
   return {
@@ -44,19 +58,14 @@ const usePurchaseModal = (handleClose: () => void) => {
 };
 
 const registerInputs = (register: UseFormRegister<BookPurchase>) => {
-  const { ref: nameInputRef, ...nameInputProps } = register("name", {});
+  const { ref: nameInputRef, ...nameInputProps } = register("name");
 
-  const { ref: phoneNumberInputRef, ...phoneNumberInputProps } = register(
-    "phoneNumber",
-    {}
-  );
+  const { ref: phoneNumberInputRef, ...phoneNumberInputProps } =
+    register("phoneNumber");
 
-  const { ref: emailInputRef, ...emailInputProps } = register("email", {});
+  const { ref: emailInputRef, ...emailInputProps } = register("email");
 
-  const { ref: addressInputRef, ...addressInputProps } = register(
-    "address",
-    {}
-  );
+  const { ref: addressInputRef, ...addressInputProps } = register("address");
 
   const registers = {
     name: {

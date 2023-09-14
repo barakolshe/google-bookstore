@@ -87,6 +87,7 @@ const AppBar = React.forwardRef<HTMLDivElement>(({}, ref) => {
             href="/"
             sx={{
               mx: "auto",
+              pr: "40px",
               display: { xs: "flex", md: "none" },
             }}
           >
