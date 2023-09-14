@@ -1,66 +1,43 @@
 import { booksEndpoint } from "@/api/api";
+import Error from "@/components/common/Error/Error";
+import Loader from "@/components/common/Loader/Loader";
 import { PAGE_SIZE } from "@/configs/mainConfig";
-import {
-  Box,
-  CircularProgress,
-  Pagination,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import { FunctionComponent } from "react";
+import { Box, Pagination, useTheme } from "@mui/material";
+import React, { ChangeEvent, FunctionComponent } from "react";
 import { useQuery } from "react-query";
+import { useNavigate, useParams } from "react-router-dom";
 import BookItem from "./components/BookItem";
 
 interface BooksListProps {}
 
 const BooksList: FunctionComponent<BooksListProps> = () => {
   const theme = useTheme();
-  const { isLoading, error, isError, data } = useQuery("booksData", () =>
-    booksEndpoint({ pageSize: PAGE_SIZE, startIndex: 0 }).then((books) => books)
+  const navigate = useNavigate();
+  const { pageNumber } = useParams();
+
+  const { isLoading, isError, data } = useQuery(["booksData", pageNumber], () =>
+    booksEndpoint({
+      pageSize: PAGE_SIZE,
+      startIndex: (Number(pageNumber) - 1) * PAGE_SIZE,
+    })
   );
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [data]);
+
+  const updatePageNumber = (_e: ChangeEvent<unknown>, _pageNumber: number) => {
+    navigate(`/books/${_pageNumber}`);
+  };
+
+  // Rendering element based on api state
   let items = null;
-
-  if (isLoading) {
-    items = (
-      <CircularProgress
-        sx={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-      />
-    );
-  } else if (isError) {
-    items = (
-      <Typography
-        variant="h2"
-        color="error"
-        sx={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          fontWeight: 600,
-        }}
-      >
-        Error
-      </Typography>
-    );
+  if (isError) {
+    items = <Error>Error</Error>;
+  } else if (isLoading) {
+    items = <Loader />;
   } else {
-    items = data?.items.map((item) => (
-      <BookItem
-        cover={item.volumeInfo.imageLinks?.thumbnail}
-        title={item.volumeInfo.title}
-      />
-    ));
-  }
-
-  return (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+    items = (
       <Box
         sx={{
           display: "flex",
@@ -68,16 +45,40 @@ const BooksList: FunctionComponent<BooksListProps> = () => {
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignItems: "center",
-          minHeight: "100%",
           width: "100%",
           gap: theme.spacing(3),
           marginTop: theme.spacing(3),
           overflowY: "hidden",
         }}
       >
-        {items}
+        {data?.items.map((item, index) => (
+          <BookItem
+            key={index}
+            cover={item.volumeInfo.imageLinks?.thumbnail}
+            title={item.volumeInfo.title}
+          />
+        ))}
       </Box>
-      <Pagination count={10} color="primary" sx={{ marginY: "20px" }} />
+    );
+  }
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        minHeight: "inherit",
+      }}
+    >
+      {items}
+      <Pagination
+        count={data !== undefined ? Math.ceil(data.totalItems / PAGE_SIZE) : 0}
+        color="primary"
+        sx={{ marginY: "20px" }}
+        onChange={updatePageNumber}
+        page={Number(pageNumber)}
+      />
     </Box>
   );
 };
