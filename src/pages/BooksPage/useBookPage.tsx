@@ -1,6 +1,5 @@
 import { booksEndpoint } from "@/api/api";
 import { PAGE_SIZE_OPTIONS } from "@/configs/apiConfig";
-import useBreakpoint from "@/hooks/useBreakpoint/useBreakpoint";
 import { debounce } from "@mui/material";
 import React, { ChangeEvent } from "react";
 import { useQuery } from "react-query";
@@ -9,7 +8,6 @@ import { useNavigate, useParams } from "react-router-dom";
 const useBookPage = () => {
   const navigate = useNavigate();
   const pageNumber = Number(useParams().pageNumber);
-  const currBreakpoint = useBreakpoint(["xs", "sm", "md"]);
   const [searchValue, setSearchValue] = React.useState("");
   const [pageSize, _setPageSize] =
     React.useState<(typeof PAGE_SIZE_OPTIONS)[number]>(50);
@@ -53,7 +51,6 @@ const useBookPage = () => {
     pageNumber,
     updatePageNumber,
     booksQuery,
-    currBreakpoint,
     setSearchValue: debounce(setSearchValue, 1000),
     pageSize,
     setPageSize,

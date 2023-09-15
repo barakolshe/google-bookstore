@@ -1,5 +1,5 @@
 import Error from "@/components/common/Error/Error";
-import Loader from "@/components/common/Loader/Loader";
+import Loader from "@/components/other/Loader/Loader";
 import { Stack, Typography } from "@mui/material";
 import React, { FunctionComponent } from "react";
 import BookItem from "./BookItem/BookItem";

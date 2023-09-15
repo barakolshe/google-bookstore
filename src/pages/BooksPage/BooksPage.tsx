@@ -1,4 +1,4 @@
-import { Pagination, Stack } from "@mui/material";
+import { Pagination, Stack, useTheme } from "@mui/material";
 import { FunctionComponent } from "react";
 import BooksList from "./BooksList/BooksList";
 import Controls from "./Controls/Controls";
@@ -11,11 +11,11 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
     pageNumber,
     updatePageNumber,
     booksQuery,
-    currBreakpoint,
     setSearchValue,
     pageSize,
     setPageSize,
   } = useBookPage();
+  const theme = useTheme();
 
   return (
     <Stack
@@ -29,7 +29,11 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
         pt: 3,
       }}
     >
-      <Controls />
+      <Controls
+        pageSize={pageSize}
+        setPageSize={setPageSize}
+        setSearchValue={setSearchValue}
+      />
       <BooksList
         isError={booksQuery.isError}
         isLoading={booksQuery.isLoading}
@@ -45,7 +49,7 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
         sx={{ my: "20px" }}
         onChange={updatePageNumber}
         page={pageNumber}
-        boundaryCount={currBreakpoint === "xs" ? 0 : 1}
+        boundaryCount={theme.breakpoints.up("xs") ? 0 : 1} // TODO - check this
       />
     </Stack>
   );

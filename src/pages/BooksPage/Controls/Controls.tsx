@@ -1,16 +1,27 @@
 import SearchTextField from "@/components/common/TextField/SearchTextField";
-import { Grid } from "@mui/material";
+import { PAGE_SIZE_OPTIONS } from "@/configs/apiConfig";
+import { Grid, useTheme } from "@mui/material";
 import { FunctionComponent } from "react";
 import PageSizeSelect from "./PageSizeSelect/PageSizeSelection";
 
-interface ControlsProps {}
+interface ControlsProps {
+  pageSize: (typeof PAGE_SIZE_OPTIONS)[number];
+  setPageSize: (pageSize: (typeof PAGE_SIZE_OPTIONS)[number]) => void;
+  setSearchValue: (searchValue: string) => void;
+}
 
-const Controls: FunctionComponent<ControlsProps> = () => {
+const Controls: FunctionComponent<ControlsProps> = ({
+  pageSize,
+  setPageSize,
+  setSearchValue,
+}) => {
+  const theme = useTheme();
+
   return (
     <Grid container direction="row-reverse">
       <Grid
         item
-        xs={currBreakpoint === "md" ? 4 : 12}
+        xs={theme.breakpoints.up("sm") ? 4 : 12} // TODO
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -22,7 +33,7 @@ const Controls: FunctionComponent<ControlsProps> = () => {
       </Grid>
       <Grid
         item
-        xs={currBreakpoint === "md" ? 4 : 12}
+        xs={theme.breakpoints.up("sm") ? 4 : 12} // TODO
         sx={{
           display: "flex",
           flexDirection: "row",
