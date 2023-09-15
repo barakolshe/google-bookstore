@@ -1,6 +1,6 @@
+import booksMock from "@/__mocks__/books";
 import { expect, test } from "@jest/globals";
 import renderer from "react-test-renderer";
-import booksMock from "../../../__mocks__/books";
 import BooksList from "../BooksList/BooksList";
 
 test("BooksList check", () => {
