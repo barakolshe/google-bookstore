@@ -1,4 +1,4 @@
-import { Pagination, Stack, useTheme } from "@mui/material";
+import { Pagination, Stack, Theme, useMediaQuery } from "@mui/material";
 import { FunctionComponent } from "react";
 import BooksList from "./BooksList/BooksList";
 import Controls from "./Controls/Controls";
@@ -15,8 +15,6 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
     pageSize,
     setPageSize,
   } = useBookPage();
-  const theme = useTheme();
-
   return (
     <Stack
       direction="column"
@@ -49,7 +47,9 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
         sx={{ my: "20px" }}
         onChange={updatePageNumber}
         page={pageNumber}
-        boundaryCount={theme.breakpoints.up("xs") ? 0 : 1} // TODO - check this
+        boundaryCount={
+          useMediaQuery((theme: Theme) => theme.breakpoints.down("sm")) ? 0 : 1
+        }
       />
     </Stack>
   );
