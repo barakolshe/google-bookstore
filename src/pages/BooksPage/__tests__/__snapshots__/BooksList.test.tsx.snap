@@ -1,0 +1,387 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BooksList check 1`] = `
+[
+  <style
+    dangerouslySetInnerHTML={
+      {
+        "__html": ".css-lw6c2t-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:300;font-size:3.75rem;line-height:1.2;letter-spacing:-0.00833em;color:#d32f2f;margin:auto auto;}",
+      }
+    }
+    data-emotion="css lw6c2t-MuiTypography-root"
+  />,
+  <h2
+    className="MuiTypography-root MuiTypography-h2 css-lw6c2t-MuiTypography-root"
+  >
+    Error
+  </h2>,
+]
+`;
+
+exports[`BooksList check 2`] = `
+[
+  <style
+    dangerouslySetInnerHTML={
+      {
+        "__html": ".css-nrjcc-MuiCircularProgress-root{display:inline-block;color:#1976d2;-webkit-animation:animation-61bdi0 1.4s linear infinite;animation:animation-61bdi0 1.4s linear infinite;margin:auto auto;}@-webkit-keyframes animation-61bdi0{0%{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}@keyframes animation-61bdi0{0%{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+      }
+    }
+    data-emotion="css nrjcc-MuiCircularProgress-root animation-61bdi0"
+  />,
+  <span
+    className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-nrjcc-MuiCircularProgress-root"
+    role="progressbar"
+    style={
+      {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <style
+      dangerouslySetInnerHTML={
+        {
+          "__html": ".css-1idz92c-MuiCircularProgress-svg{display:block;}",
+        }
+      }
+      data-emotion="css 1idz92c-MuiCircularProgress-svg"
+    />
+    <svg
+      className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
+    >
+      <style
+        dangerouslySetInnerHTML={
+          {
+            "__html": ".css-176wh8e-MuiCircularProgress-circle{stroke:currentColor;stroke-dasharray:80px,200px;stroke-dashoffset:0;-webkit-animation:animation-1p2h4ri 1.4s ease-in-out infinite;animation:animation-1p2h4ri 1.4s ease-in-out infinite;}@-webkit-keyframes animation-1p2h4ri{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}}@keyframes animation-1p2h4ri{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}}",
+          }
+        }
+        data-emotion="css 176wh8e-MuiCircularProgress-circle animation-1p2h4ri"
+      />
+      <circle
+        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+        cx={44}
+        cy={44}
+        fill="none"
+        r={20.2}
+        strokeWidth={3.6}
+        style={{}}
+      />
+    </svg>
+  </span>,
+]
+`;
+
+exports[`BooksList check 3`] = `
+[
+  <style
+    dangerouslySetInnerHTML={
+      {
+        "__html": ".css-1n3xms3-MuiStack-root{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:space-around;-ms-flex-pack:space-around;-webkit-justify-content:space-around;justify-content:space-around;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;gap:24px;margin-top:24px;overflow-y:hidden;}",
+      }
+    }
+    data-emotion="css 1n3xms3-MuiStack-root"
+  />,
+  <div
+    className="MuiStack-root css-1n3xms3-MuiStack-root"
+  >
+    <style
+      dangerouslySetInnerHTML={
+        {
+          "__html": ".css-1gdfwye-MuiCard-root{overflow:hidden;}",
+        }
+      }
+      data-emotion="css 1gdfwye-MuiCard-root"
+    />
+    <style
+      dangerouslySetInnerHTML={
+        {
+          "__html": ".css-bhp9pd-MuiPaper-root-MuiCard-root{background-color:#fff;color:rgba(0, 0, 0, 0.87);-webkit-transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border-radius:4px;box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);overflow:hidden;}",
+        }
+      }
+      data-emotion="css bhp9pd-MuiPaper-root-MuiCard-root"
+    />
+    <div
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+      title="Cyber War Versus Cyber Realities"
+    >
+      <style
+        dangerouslySetInnerHTML={
+          {
+            "__html": ".css-1iflqzi-MuiCardActionArea-root{display:block;text-align:inherit;border-radius:inherit;width:100%;height:294px;}.css-1iflqzi-MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{opacity:0.04;}@media (hover: none){.css-1iflqzi-MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{opacity:0;}}.css-1iflqzi-MuiCardActionArea-root.Mui-focusVisible .MuiCardActionArea-focusHighlight{opacity:0.12;}",
+          }
+        }
+        data-emotion="css 1iflqzi-MuiCardActionArea-root"
+      />
+      <style
+        dangerouslySetInnerHTML={
+          {
+            "__html": ".css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;background-color:transparent;outline:0;border:0;margin:0;border-radius:0;padding:0;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;vertical-align:middle;-moz-appearance:none;-webkit-appearance:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;display:block;text-align:inherit;border-radius:inherit;width:100%;height:294px;}.css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root::-moz-focus-inner{border-style:none;}.css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root.Mui-disabled{pointer-events:none;cursor:default;}@media print{.css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root{-webkit-print-color-adjust:exact;color-adjust:exact;}}.css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{opacity:0.04;}@media (hover: none){.css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{opacity:0;}}.css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root.Mui-focusVisible .MuiCardActionArea-focusHighlight{opacity:0.12;}",
+          }
+        }
+        data-emotion="css 15c6e8y-MuiButtonBase-root-MuiCardActionArea-root"
+      />
+      <button
+        className="MuiButtonBase-root MuiCardActionArea-root css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <style
+          dangerouslySetInnerHTML={
+            {
+              "__html": ".css-13f3otb-MuiStack-root{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;}",
+            }
+          }
+          data-emotion="css 13f3otb-MuiStack-root"
+        />
+        <div
+          className="MuiStack-root css-13f3otb-MuiStack-root"
+        >
+          <style
+            dangerouslySetInnerHTML={
+              {
+                "__html": ".css-dq5npw{height:188px;object-fit:fill;}",
+              }
+            }
+            data-emotion="css dq5npw"
+          />
+          <img
+            className="MuiBox-root css-dq5npw"
+            src="http://books.google.com/books/content?id=TpmeBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          />
+        </div>
+        <style
+          dangerouslySetInnerHTML={
+            {
+              "__html": ".css-46bh2p-MuiCardContent-root{padding:16px;}.css-46bh2p-MuiCardContent-root:last-child{padding-bottom:24px;}",
+            }
+          }
+          data-emotion="css 46bh2p-MuiCardContent-root"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <style
+            dangerouslySetInnerHTML={
+              {
+                "__html": ".css-1fx5ipg-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:1.25rem;line-height:1.6;letter-spacing:0.0075em;text-align:center;display:-webkit-box;width:250px;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:10px;}",
+              }
+            }
+            data-emotion="css 1fx5ipg-MuiTypography-root"
+          />
+          <h6
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-1fx5ipg-MuiTypography-root"
+          >
+            Cyber War Versus Cyber Realities
+          </h6>
+        </div>
+        <style
+          dangerouslySetInnerHTML={
+            {
+              "__html": ".css-1v2exvi-MuiCardActionArea-focusHighlight{overflow:hidden;pointer-events:none;position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;opacity:0;background-color:currentcolor;-webkit-transition:opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}",
+            }
+          }
+          data-emotion="css 1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+        <span
+          className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+      </button>
+    </div>
+    <div
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+      title="Cyber War Versus Cyber Realities"
+    >
+      <button
+        className="MuiButtonBase-root MuiCardActionArea-root css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          className="MuiStack-root css-13f3otb-MuiStack-root"
+        >
+          <img
+            className="MuiBox-root css-dq5npw"
+            src="http://books.google.com/books/content?id=TpmeBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          />
+        </div>
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <h6
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-1fx5ipg-MuiTypography-root"
+          >
+            Cyber War Versus Cyber Realities
+          </h6>
+        </div>
+        <span
+          className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+      </button>
+    </div>
+    <div
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+      title="Cyber War Versus Cyber Realities"
+    >
+      <button
+        className="MuiButtonBase-root MuiCardActionArea-root css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          className="MuiStack-root css-13f3otb-MuiStack-root"
+        >
+          <img
+            className="MuiBox-root css-dq5npw"
+            src="http://books.google.com/books/content?id=TpmeBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          />
+        </div>
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <h6
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-1fx5ipg-MuiTypography-root"
+          >
+            Cyber War Versus Cyber Realities
+          </h6>
+        </div>
+        <span
+          className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+      </button>
+    </div>
+    <div
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+      title="Cyber War Versus Cyber Realities"
+    >
+      <button
+        className="MuiButtonBase-root MuiCardActionArea-root css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          className="MuiStack-root css-13f3otb-MuiStack-root"
+        >
+          <img
+            className="MuiBox-root css-dq5npw"
+            src="http://books.google.com/books/content?id=TpmeBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          />
+        </div>
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <h6
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-1fx5ipg-MuiTypography-root"
+          >
+            Cyber War Versus Cyber Realities
+          </h6>
+        </div>
+        <span
+          className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+      </button>
+    </div>
+    <div
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+      title="Cyber War Versus Cyber Realities"
+    >
+      <button
+        className="MuiButtonBase-root MuiCardActionArea-root css-15c6e8y-MuiButtonBase-root-MuiCardActionArea-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          className="MuiStack-root css-13f3otb-MuiStack-root"
+        >
+          <img
+            className="MuiBox-root css-dq5npw"
+            src="http://books.google.com/books/content?id=TpmeBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          />
+        </div>
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <h6
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-1fx5ipg-MuiTypography-root"
+          >
+            Cyber War Versus Cyber Realities
+          </h6>
+        </div>
+        <span
+          className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+      </button>
+    </div>
+  </div>,
+]
+`;
