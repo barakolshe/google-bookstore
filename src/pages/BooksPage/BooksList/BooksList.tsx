@@ -1,6 +1,6 @@
 import Loader from "@/components/common/Loader/Loader";
+import { Book } from "@/types/BookResponse.interface";
 import { Grid, Typography } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import React, { FunctionComponent } from "react";
 import BookItem from "../../../components/shared/BookItem/BookItem";
 import PurchaseModal from "./PurchaseModal/PurchaseModal";
@@ -42,24 +42,31 @@ const BooksList: FunctionComponent<BooksListProps> = ({
     );
   } else {
     items = (
-      <Grid
-        container
-        sx={{
-          gap: 3,
-          mt: 3,
-          overflowY: "hidden",
-        }}
-      >
-        {books?.map((item, index) => (
-          <Grid2 xs={12} sm={6} md={3} sx={{ marginX: "auto" }}>
-            <BookItem
-              onClick={() => setSelectedBook(item)}
-              key={index}
-              cover={item.volumeInfo.imageLinks?.thumbnail}
-              title={item.volumeInfo.title}
-            />
-          </Grid2>
-        ))}
+      <Grid container spacing={3}>
+        {books?.map((item, index) => {
+          console.log(item.id);
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <BookItem
+                onClick={() => setSelectedBook(item)}
+                key={`${item.id}${index}`}
+                cover={item.volumeInfo.imageLinks?.thumbnail}
+                title={item.volumeInfo.title}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
     );
   }

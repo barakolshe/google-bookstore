@@ -21,7 +21,8 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
       alignItems="center"
       sx={{
         px: 5,
-        pt: 3,
+        py: 3,
+        gap: 3,
         flexGrow: "1",
       }}
     >
@@ -42,7 +43,6 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
             : 0
         }
         color="primary"
-        sx={{ my: "20px" }}
         onChange={updatePageNumber}
         page={pageNumber}
         boundaryCount={

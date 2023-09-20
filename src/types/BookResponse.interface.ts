@@ -1,4 +1,5 @@
-interface Book {
+export interface Book {
+  id: string;
   volumeInfo: {
     title: string;
     imageLinks?: {
@@ -7,7 +8,7 @@ interface Book {
   };
 }
 
-interface BooksResponse {
+export interface BooksResponse {
   totalItems: number;
   items: Book[];
 }

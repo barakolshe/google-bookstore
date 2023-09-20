@@ -1,4 +1,5 @@
 import { DEFAULT_FILTER, FIELDS, MAX_PAGE_SIZE } from "@/configs/apiConfig";
+import { BooksResponse } from "@/types/BookResponse.interface";
 import axios from "axios";
 import { getBooks } from "./endpoints";
 
@@ -56,7 +57,7 @@ export const booksEndpoint = ({
   const _keyWord =
     keyWord !== undefined ? `${DEFAULT_FILTER}+${keyWord}` : DEFAULT_FILTER;
 
-  let queryBuilders = getPageSize(pageSize, startIndex);
+  const queryBuilders = getPageSize(pageSize, startIndex);
 
   queryBuilders.forEach((qb) => qb.keyWord(_keyWord));
   queryBuilders.forEach((qb) => qb.fields(FIELDS));
@@ -88,10 +89,10 @@ const getPageSize = (pageSize: number, startIndex: number) => {
       : pageSize % MAX_PAGE_SIZE;
   };
 
-  let queryBuilders = [];
+  const queryBuilders = [];
 
   for (; pageSize > 0; pageSize -= MAX_PAGE_SIZE) {
-    let currQuery = new QueryBuilder();
+    const currQuery = new QueryBuilder();
     currQuery.startIndex(startIndex);
     startIndex += calcCurrPageSize(pageSize);
     currQuery.maxResults(calcCurrPageSize(pageSize));
@@ -132,13 +133,13 @@ const getTotalItems = async (keyWord: string) => {
 };
 
 const getFirstPageCount = async (keyWord: string) => {
-  let qb = new QueryBuilder();
+  const qb = new QueryBuilder();
   qb.fields(FIELDS);
   qb.keyWord(keyWord);
   qb.maxResults(MAX_PAGE_SIZE);
   qb.startIndex(0);
 
-  let result = await axios
+  const result = await axios
     .get<BooksResponse>(`${server}${getBooks}?${qb.getQuery()}`)
     .then((response) => response.data);
 
@@ -151,15 +152,15 @@ const binarySearchCount = async (keyWord: string) => {
   let end = 500; // around the actual number of cyber books
 
   while (start <= end) {
-    let qb = new QueryBuilder();
+    const qb = new QueryBuilder();
     qb.fields(FIELDS);
     qb.keyWord(keyWord);
     qb.maxResults(MAX_PAGE_SIZE);
 
-    let mid = Math.floor((start + end) / 2);
+    const mid = Math.floor((start + end) / 2);
     qb.startIndex(mid);
 
-    let result = await axios
+    const result = await axios
       .get<BooksResponse>(`${server}${getBooks}?${qb.getQuery()}`)
       .then((response) => response.data);
 

@@ -20,7 +20,7 @@ const BookItem: FunctionComponent<BookItemProps> = ({
   onClick,
 }) => {
   return (
-    <Card title={title}>
+    <Card title={title} sx={{ width: "250px" }}>
       <CardActionArea sx={{ height: "294px" }} onClick={onClick}>
         <Stack direction="row" justifyContent="center">
           <Box
@@ -36,7 +36,6 @@ const BookItem: FunctionComponent<BookItemProps> = ({
             align="center"
             sx={{
               display: "-webkit-box",
-              width: "250px",
               WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
