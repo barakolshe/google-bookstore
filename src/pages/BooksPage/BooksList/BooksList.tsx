@@ -51,7 +51,7 @@ const BooksList: FunctionComponent<BooksListProps> = ({
         }}
       >
         {books?.map((item, index) => (
-          <Grid2 xs={12} sm={6} md={3}>
+          <Grid2 xs={12} sm={6} md={3} sx={{ marginX: "auto" }}>
             <BookItem
               onClick={() => setSelectedBook(item)}
               key={index}
