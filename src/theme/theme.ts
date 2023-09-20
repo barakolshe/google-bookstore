@@ -25,6 +25,9 @@ let theme = createTheme({
       primary: "#4A4543",
       secondary: "#808080",
     },
+    background: {
+      default: "hsl(0, 0%, 99%)",
+    },
     search: {
       main: "placeholder",
     },
