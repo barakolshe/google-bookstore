@@ -43,30 +43,27 @@ const BooksList: FunctionComponent<BooksListProps> = ({
   } else {
     items = (
       <Grid container spacing={3}>
-        {books?.map((item, index) => {
-          console.log(item.id);
-          return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <BookItem
-                onClick={() => setSelectedBook(item)}
-                key={`${item.id}${index}`}
-                cover={item.volumeInfo.imageLinks?.thumbnail}
-                title={item.volumeInfo.title}
-              />
-            </Grid>
-          );
-        })}
+        {books?.map((item, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+            }}
+          >
+            <BookItem
+              onClick={() => setSelectedBook(item)}
+              key={`${item.id}${index}`}
+              cover={item.volumeInfo.imageLinks?.thumbnail}
+              title={item.volumeInfo.title}
+            />
+          </Grid>
+        ))}
       </Grid>
     );
   }

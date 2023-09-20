@@ -29,7 +29,7 @@ const useBookPage = () => {
 
   // Validating the current page number
   React.useEffect(() => {
-    let currMaxPageSize =
+    const currMaxPageSize =
       booksQuery.data !== undefined
         ? Math.ceil(booksQuery.data?.totalItems / pageSize)
         : 0;
@@ -37,7 +37,7 @@ const useBookPage = () => {
     if (currMaxPageSize !== 0 && pageNumber > currMaxPageSize) {
       navigate(`/books/${1}`);
     }
-  }, [booksQuery, pageSize, pageNumber]);
+  }, [booksQuery, pageSize, pageNumber, navigate]);
 
   React.useEffect(() => {
     window.scrollTo({ top: 0 });

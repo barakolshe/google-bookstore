@@ -14,7 +14,7 @@ import * as React from "react";
 
 const pages = ["Books"];
 
-const AppBar = React.forwardRef<HTMLDivElement>(({}, ref) => {
+const AppBar = React.forwardRef<HTMLDivElement>((_, ref) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );

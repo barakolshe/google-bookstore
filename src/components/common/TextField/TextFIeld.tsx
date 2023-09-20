@@ -4,7 +4,7 @@ import {
 } from "@mui/material";
 import { FunctionComponent, forwardRef } from "react";
 
-type TextFieldProps = MuiTextFieldProps & {};
+type TextFieldProps = MuiTextFieldProps;
 
 const TextField: FunctionComponent<TextFieldProps> = forwardRef(
   ({ sx, ...props }, ref) => {

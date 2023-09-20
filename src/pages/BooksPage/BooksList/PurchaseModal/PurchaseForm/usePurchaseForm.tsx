@@ -1,3 +1,4 @@
+import { BookPurchase } from "@/types/BookPurchase.interface";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { UseFormRegister, useForm } from "react-hook-form";
@@ -43,7 +44,7 @@ const usePurchaseForm = ({
 
   React.useEffect(() => {
     reset();
-  }, [shouldReset]);
+  }, [shouldReset, reset]);
 
   const onSubmit = () => {
     setPurchasedBook(bookName);

@@ -1,4 +1,4 @@
-interface BookPurchase {
+export interface BookPurchase {
   name: string;
   phoneNumber: string;
   email: string;
