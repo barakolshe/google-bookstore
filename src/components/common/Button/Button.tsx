@@ -1,28 +1,25 @@
-import { ButtonProps as MuiButtonProps } from "@mui/material";
+import {
+  Button as MuiButton,
+  ButtonProps as MuiButtonProps,
+} from "@mui/material";
 import { FunctionComponent } from "react";
-import PrimaryButon from "./_buttons/PrimaryButton";
 
-// Creating different variants of buttons
-const variants = {
-  primary: "primary",
-} as const;
+interface ButtonProps extends MuiButtonProps {}
 
-type VariantsTypes = (typeof variants)[keyof typeof variants];
-
-type ButtonProps = Omit<MuiButtonProps, "variant"> & {
-  variant?: VariantsTypes;
-};
-
-const Button: FunctionComponent<ButtonProps> = ({ variant, ...props }) => {
-  // Returning the correct variant
-  switch (variant) {
-    case variants.primary:
-      return <PrimaryButon {...props} />;
-      break;
-    default:
-      return <PrimaryButon {...props} />;
-      break;
-  }
+const Button: FunctionComponent<ButtonProps> = ({ children, sx, ...props }) => {
+  return (
+    <MuiButton
+      variant="contained"
+      sx={{
+        color: "common.white",
+        borderRadius: "8px",
+        ...sx,
+      }}
+      {...props}
+    >
+      {children}
+    </MuiButton>
+  );
 };
 
 export default Button;

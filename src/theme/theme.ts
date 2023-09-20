@@ -51,10 +51,12 @@ theme = createTheme(theme, {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
+          minHeight: "100vh",
           overflowX: "hidden",
         },
         "#root": {
           width: "100vw",
+          minHeight: "inherit",
         },
         "*": {
           outline: "none",

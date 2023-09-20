@@ -20,11 +20,9 @@ const BooksPage: FunctionComponent<BooksPageProps> = () => {
       direction="column"
       alignItems="center"
       sx={{
-        position: "relative",
-        minHeight: "inherit",
-        width: "100%",
         px: 5,
         pt: 3,
+        flexGrow: "1",
       }}
     >
       <Controls
