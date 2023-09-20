@@ -2,7 +2,7 @@ import Loader from "@/components/common/Loader/Loader";
 import { Grid, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import React, { FunctionComponent } from "react";
-import BookItem from "./BookItem/BookItem";
+import BookItem from "../../../components/shared/BookItem/BookItem";
 import PurchaseModal from "./PurchaseModal/PurchaseModal";
 
 interface BooksListProps {
