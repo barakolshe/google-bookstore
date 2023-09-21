@@ -49,7 +49,7 @@ class QueryBuilder {
   }
 }
 
-export const booksEndpoint = ({
+export const booksEndpoint = async ({
   keyWord,
   startIndex,
   pageSize,
@@ -57,6 +57,13 @@ export const booksEndpoint = ({
   const _keyWord =
     keyWord !== undefined ? `${DEFAULT_FILTER}+${keyWord}` : DEFAULT_FILTER;
 
+  const totalItems = Number(await getTotalItems(_keyWord));
+  if (totalItems === 0) {
+    return {
+      totalItems: 0,
+      items: [],
+    };
+  }
   const queryBuilders = getPageSize(pageSize, startIndex);
 
   queryBuilders.forEach((qb) => qb.keyWord(_keyWord));
@@ -68,10 +75,14 @@ export const booksEndpoint = ({
     queries.map((query) =>
       axios
         .get<BooksResponse>(`${server}${getBooks}?${query}`)
-        .then(async (response) => {
-          response.data.totalItems = Number(await getTotalItems(_keyWord));
+        .then((response) => {
+          response.data.totalItems = totalItems;
           return response.data;
         })
+        .catch(() => ({
+          totalItems: totalItems,
+          items: [],
+        }))
     )
   );
 };
@@ -123,6 +134,7 @@ const getTotalItems = async (keyWord: string) => {
     return Promise.resolve(itemsCountCache.get(keyWord));
   } else {
     const firstPageCount = await getFirstPageCount(keyWord);
+    console.log("first page count:", firstPageCount);
     const count =
       firstPageCount < MAX_PAGE_SIZE
         ? firstPageCount

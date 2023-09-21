@@ -55,10 +55,10 @@ const BooksList: FunctionComponent<BooksListProps> = ({
               flexDirection: "row",
               justifyContent: "center",
             }}
+            key={`${item.id}${index}`}
           >
             <BookItem
               onClick={() => setSelectedBook(item)}
-              key={`${item.id}${index}`}
               cover={item.volumeInfo.imageLinks?.thumbnail}
               title={item.volumeInfo.title}
             />
