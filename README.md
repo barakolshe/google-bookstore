@@ -1,5 +1,9 @@
-# Kovrr assignment
+# Google bookstore
 
+# Description
+A google cyber bookstore containing cyber books with pagination, and the ability to search up cyber books using a search bar.
+
+# Running
 run 
 ```
 npm install
